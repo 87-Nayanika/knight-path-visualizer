@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>
 <title>Knight Path Visualizer</title>
 <link rel="stylesheet" href="style.css">
@@ -9,15 +8,20 @@
 
 <body>
 
-<h1>Knight Path Finder (Knight Movement)</h1>
+<h1>Knight Path Finder</h1>
 
-<button onclick="runBFS()">Find Path (BFS)</button>
+<div class="buttons">
+<button onclick="runBFS()">BFS</button>
+<button onclick="runDFS()">DFS</button>
+<button onclick="runAStar()">A*</button>
+<button onclick="runUCS()">UCS</button>
+<button onclick="runGreedy()">Greedy</button>
+<button onclick="runBiBFS()">Bi-BFS</button>
+</div>
 
 <canvas id="board" width="400" height="400"></canvas>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
-
