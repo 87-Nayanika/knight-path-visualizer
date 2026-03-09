@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
+
 <title>Knight Path Visualizer</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<h1>Knight Path Finder</h1>
+<h1>Knight Path Finding Visualizer</h1>
 
-<div class="buttons">
+<p>Select a search algorithm to find the path of the knight.</p>
+
+<div class="controls">
+
 <button onclick="runBFS()">BFS</button>
+
 <button onclick="runDFS()">DFS</button>
-<button onclick="runAStar()">A*</button>
-<button onclick="runUCS()">UCS</button>
+
 <button onclick="runGreedy()">Greedy</button>
-<button onclick="runBiBFS()">Bi-BFS</button>
+
+<button onclick="runAStar()">A*</button>
+
 </div>
 
 <canvas id="board" width="400" height="400"></canvas>
 
+<p>
+Green = Start | Red = Goal | Black = Obstacles | Blue = Path
+</p>
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
