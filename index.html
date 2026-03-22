@@ -1,41 +1,84 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
-<title>Knight Path Visualizer</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knight Path Visualizer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1 class="title">Knight Path Visualizer</h1>
+        <p class="subtitle">Explore how different pathfinding algorithms solve the knight's tour problem</p>
+      </div>
+    </header>
 
-<h1>Knight Path Finding Visualizer</h1>
+    <main class="main-content">
+      <div class="visualization-section">
+        <div class="canvas-wrapper">
+          <canvas id="board" width="500" height="500"></canvas>
+        </div>
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-color start"></div>
+            <span>Start</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color goal"></div>
+            <span>Goal</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color obstacle"></div>
+            <span>Obstacle</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color path"></div>
+            <span>Path</span>
+          </div>
+        </div>
+      </div>
 
-<p>Select a search algorithm to find the path of the knight.</p>
+      <div class="algorithms-section">
+        <h2>Select Algorithm</h2>
+        <div class="algorithms-grid">
+          <button class="algorithm-btn" onclick="runBFS()" data-algo="BFS">
+            <span class="algo-name">BFS</span>
+            <span class="algo-desc">Breadth-First Search</span>
+          </button>
+          <button class="algorithm-btn" onclick="runDFS()" data-algo="DFS">
+            <span class="algo-name">DFS</span>
+            <span class="algo-desc">Depth-First Search</span>
+          </button>
+          <button class="algorithm-btn" onclick="runGreedy()" data-algo="Greedy">
+            <span class="algo-name">Greedy</span>
+            <span class="algo-desc">Greedy Search</span>
+          </button>
+          <button class="algorithm-btn" onclick="runAStar()" data-algo="A*">
+            <span class="algo-name">A*</span>
+            <span class="algo-desc">A* Search</span>
+          </button>
+        </div>
+      </div>
 
-<div class="controls">
+      <div class="stats-section">
+        <div class="stat-card">
+          <span class="stat-label">Algorithm</span>
+          <span class="stat-value" id="stat-algo">-</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Path Length</span>
+          <span class="stat-value" id="stat-length">-</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Status</span>
+          <span class="stat-value" id="stat-status">Ready</span>
+        </div>
+      </div>
+    </main>
+  </div>
 
-<button onclick="runBFS()">BFS</button>
-
-<button onclick="runDFS()">DFS</button>
-
-<button onclick="runGreedy()">Greedy</button>
-
-<button onclick="runAStar()">A*</button>
-
-</div>
-
-<canvas id="board" width="400" height="400"></canvas>
-
-<p>
-Green = Start | Red = Goal | Black = Obstacles | Blue = Path
-</p>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>

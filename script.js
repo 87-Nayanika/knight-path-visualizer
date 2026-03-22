@@ -2,7 +2,7 @@ const canvas = document.getElementById("board");
 const ctx = canvas.getContext("2d");
 
 const size = 8;
-const cell = 50;
+const cell = canvas.width / size;
 
 const start = [0,0];
 const goal = [7,7];
@@ -239,24 +239,44 @@ ctx.stroke();
 
 /* Run Functions */
 
+function updateStats(algoName, path) {
+  const algoElement = document.getElementById("stat-algo");
+  const lengthElement = document.getElementById("stat-length");
+  const statusElement = document.getElementById("stat-status");
+  
+  algoElement.textContent = algoName;
+  
+  if (path) {
+    lengthElement.textContent = path.length - 1;
+    statusElement.textContent = "Found";
+  } else {
+    lengthElement.textContent = "N/A";
+    statusElement.textContent = "No Path";
+  }
+}
+
 function runBFS(){
-let path=bfs();
-drawPath(path);
+  let path = bfs();
+  drawPath(path);
+  updateStats("BFS", path);
 }
 
 function runDFS(){
-let path=dfs();
-drawPath(path);
+  let path = dfs();
+  drawPath(path);
+  updateStats("DFS", path);
 }
 
 function runGreedy(){
-let path=greedy();
-drawPath(path);
+  let path = greedy();
+  drawPath(path);
+  updateStats("Greedy", path);
 }
 
 function runAStar(){
-let path=aStar();
-drawPath(path);
+  let path = aStar();
+  drawPath(path);
+  updateStats("A*", path);
 }
 
 drawBoard();
